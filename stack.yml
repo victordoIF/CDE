@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  estoque-api:
+    image: estoque-api:latest
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s

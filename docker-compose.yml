@@ -8,6 +8,6 @@ services:
       - ./data:/app/data
     environment:
       - PORT=3000
-      - JWT_SECRET=segredo-super-seguro
+      - JWT_SECRET=${JWT_SECRET}
       - DB_FILE=/app/data/estoque.db 
     restart: always
