@@ -1,0 +1,13 @@
+services:
+  estoque-api:
+    build: .
+    container_name: estoque-container
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - PORT=3000
+      - JWT_SECRET=segredo-super-seguro
+      - DB_FILE=/app/data/estoque.db 
+    restart: always
