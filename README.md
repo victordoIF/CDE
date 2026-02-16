@@ -7,7 +7,7 @@ Projeto integrador para as disciplinas de Ambiente de Software, Programação Es
 3. Execute o comando para subir o container
    `docker compose up --build`
 4. Em outro terminal, inicialize o banco de dados
-   `docker compose run estoque-api npm run dbinit`
+   `docker compose run estoque-api npm run db:init`
 
 ## Comandos Úteis
 - Derrubar o sistema `docker compose down`

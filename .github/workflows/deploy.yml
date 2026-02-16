@@ -2,7 +2,7 @@ name: Deploy do Sistema de Estoque
 
 on:
   push:
-  branches: [ main ]
+    branches: [ main ]
 
 jobs:
   build-and-deploy:
@@ -24,4 +24,4 @@ jobs:
             cd ~/projeto-estoque
             git pull origin main
             docker compose down               
-            docker compose up -d --build      
+            docker compose up -d --build
