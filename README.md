@@ -1,9 +1,9 @@
 # Trabalho de Estoque - ADS Umirim
 * **Aluno:** Victor Manuel Cunha Santos
 * **Professor:** Rôney Reis
-* **Disciplinas:** Ambiente de Software / Programação Estruturada
+* **Disciplinas:** Ambiente de Software / Programação Estruturada / Engenharia de Software
 
-Este é o meu projeto para as disciplinas de Ambiente de Software e Programação Estruturada. É um sistema para controlar entrada e saída de mercadorias.
+Este é o meu projeto para as disciplinas de Ambiente de Software, Programação Estruturada e Engenharia de Software. É um sistema para controlar entrada e saída de mercadorias.
 
 ## Como eu fiz o projeto
 Organizei o código em pastas separadas (`src/routes`, `src/controllers`, etc.) para não ficar tudo bagunçado em um arquivo só. Usei SQLite porque é mais fácil de configurar dentro do container e JWT para garantir que ninguém mexa no estoque sem estar logado.
