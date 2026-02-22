@@ -44,4 +44,4 @@ Criei uma pasta ```/prints``` no repositório com as imagens do sistema funciona
 * Tem um arquivo deploy.yml na pasta .github que faz o build automático se eu mandar o código para a branch main.
 * Tem um arquivo stack.yml para rodar o serviço com réplicas no Docker Swarm.
 
-## Porta utilizada: 3000.
+## Porta utilizada: ```3000```.
