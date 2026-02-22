@@ -34,3 +34,5 @@ Para subir o sistema, você só precisa ter o Docker instalado.
 * Usei um volume no Docker (./data:/app/data) para o arquivo .db não sumir quando o container for parado.
 * Configurei o HEALTHCHECK no Dockerfile para o Docker saber se a API está de pé.
 * Tem um arquivo deploy.yml na pasta .github que faz o build automático se eu mandar o código para a branch main.
+
+## Porta utilizada: 3000.
