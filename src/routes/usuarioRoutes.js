@@ -5,17 +5,14 @@ import { open } from 'sqlite';
 
 const router = express.Router();
 
-// Todas as rotas de utilizadores exigem ser admin (Requisito 5.1)
 router.use(autenticar, permitir('admin'));
 
-// Listar utilizadores (GET /usuarios)
 router.get('/', async (req, res) => {
     const db = await open({ filename: process.env.DB_FILE, driver: sqlite3.Database });
     const usuarios = await db.all("SELECT id, usuario, perfil FROM usuarios");
     res.json(usuarios);
 });
 
-// Criar utilizador (POST /usuarios)
 router.post('/', async (req, res) => {
     const { usuario, senha, perfil } = req.body;
     const db = await open({ filename: process.env.DB_FILE, driver: sqlite3.Database });

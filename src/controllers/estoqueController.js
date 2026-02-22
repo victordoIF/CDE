@@ -12,6 +12,17 @@ export const listarProdutos = async (req, res) => {
     res.json(produtos);
 };
 
+export const criarProduto = async (req, res) => {
+    const { nome, minimo } = req.body;
+    const db = await dbPromise;
+    try {
+        await db.run("INSERT INTO produtos (nome, quantidade, minimo) VALUES (?, 0, ?)", [nome, minimo]);
+        res.status(201).json({ message: 'Produto criado com sucesso' });
+    } catch (error) {
+        res.status(400).json({ error: 'Erro ao criar produto' });
+    }
+};
+
 export const realizarMovimentacao = async (req, res) => {
     const { produto_id, tipo, quantidade } = req.body;
     const usuario_id = req.user.id;
@@ -38,14 +49,9 @@ export const realizarMovimentacao = async (req, res) => {
 };
 
 export const relatorioBaixoEstoque = async (req, res) => {
-    const db = await open({
-        filename: process.env.DB_FILE,
-        driver: sqlite3.Database
-    });
-
+    const db = await dbPromise;
     const produtosCriticos = await db.all(
         "SELECT * FROM produtos WHERE quantidade <= minimo"
     );
-
     res.json(produtosCriticos);
 };
