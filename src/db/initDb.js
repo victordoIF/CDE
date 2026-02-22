@@ -5,7 +5,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 async function setup() {
-
     const dbFile = process.env.DB_FILE || './data/estoque.db';
 
     const db = await open({
@@ -19,19 +18,15 @@ async function setup() {
             usuario TEXT UNIQUE,
             senha TEXT,
             perfil TEXT CHECK(perfil IN ('admin', 'estoquista', 'consulta'))
-        )
-    `);
+        );
 
-    await db.exec(`
         CREATE TABLE IF NOT EXISTS produtos (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome TEXT,
             quantidade INTEGER DEFAULT 0,
             minimo INTEGER DEFAULT 5
-        )
-    `);
+        );
 
-    await db.exec(`
         CREATE TABLE IF NOT EXISTS movimentacoes (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             produto_id INTEGER,
@@ -41,10 +36,23 @@ async function setup() {
             usuario_id INTEGER,
             FOREIGN KEY (produto_id) REFERENCES produtos(id),
             FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
-        )
+        );
     `);
 
-    console.log("Banco de dados e tabelas criados com sucesso!");
+    const adminExistente = await db.get("SELECT * FROM usuarios WHERE usuario = 'admin'");
+    if (!adminExistente) {
+        await db.run(
+            "INSERT INTO usuarios (usuario, senha, perfil) VALUES (?, ?, ?)",
+            ['admin', 'admin123', 'admin']
+        );
+        console.log("Utilizador admin criado com sucesso!");
+    }
+
+    console.log("Estrutura do banco de dados pronta!");
 }
 
+await db.run(
+    "INSERT OR IGNORE INTO usuarios (usuario, senha, perfil) VALUES (?, ?, ?)",
+    ['admin', 'admin123', 'admin']
+);
 setup();
