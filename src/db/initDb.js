@@ -51,8 +51,4 @@ async function setup() {
     console.log("Estrutura do banco de dados pronta!");
 }
 
-await db.run(
-    "INSERT OR IGNORE INTO usuarios (usuario, senha, perfil) VALUES (?, ?, ?)",
-    ['admin', 'admin123', 'admin']
-);
 setup();
