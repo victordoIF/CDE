@@ -24,9 +24,10 @@ Para subir o sistema, você só precisa ter o Docker instalado.
    * Login: admin
    * Senha: admin123
 
-## O que o sistema faz (Rotas)
-* Login (/auth/login): Você manda o usuário e ele te devolve o token que dura 1 hora.
-* Produtos: Dá para cadastrar novos itens, mas o sistema já começa com a quantidade zerada por segurança.
+## Como funciona o deploy (CI/CD)
+O projeto tem um workflow no GitHub Actions que automatiza o build e o deploy:
+* Toda vez que eu dou um push na branch main, o GitHub faz o build da imagem Docker para ver se está tudo certo.
+* Depois do build, ele tenta conectar via SSH no servidor para atualizar os containers.
 * Movimentação: Fiz a lógica para não deixar o estoque ficar negativo. Se tentar tirar 10 unidades de um produto que só tem 5, o sistema barra e dá erro.
 * Alerta: Tem um relatório em /estoque/relatorios/baixo-estoque que avisa quando o produto está abaixo do limite mínimo que a gente cadastrou.
 
