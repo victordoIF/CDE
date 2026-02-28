@@ -34,15 +34,13 @@ O projeto tem um workflow no GitHub Actions que automatiza o build e o deploy:
 Para o deploy funcionar em um cenário real, você deve ir no seu repositório em: ```Settings > Secrets and variables > Actions > New repository secret:```
 * ```SERVER_HOST```, ```SERVER_USER```, ```SERVER_SSH_KEY``` e ```JWT_SECRET```.
 
-## 📂 Documentação e Relatórios
+## 📂 Documentação
 Toda a documentação teórica e as evidências de teste estão organizadas na pasta `/docs`:
 
 * **Engenharia de Software:** O relatório completo com os artefatos (Visão, Personas, Modelo ER, etc.) está em [`/docs/reports/`](./docs/reports/).
-* **Prints e Evidências:** Os registos do Workflow do GitHub Actions, as Secrets e os testes da API estão em [`/docs/screenshots/`](./docs/screenshots/).
-
-Criei uma pasta ```/prints``` no repositório com as imagens do sistema funcionando:
-* **Workflow:** Veja o print ```Erro_SSH.png``` para verificar o build da imagem Docker com sucesso (note que o erro ocorre apenas no acesso ao IP fictício).
-* **Configuração:** Veja o o print ```Secrets_criadas.png"``` para verificar que as Secrets foram devidamente criadas.
+* **Prints e Evidências:** Os registos do Workflow do GitHub Actions e as Secrets estão em [`/docs/screenshots/`](./docs/screenshots/).
+* **Workflow:** Veja o print [`/docs/screenshots/Erro_SSH.png`](./docs/screenshots/Erro_SSH.png) para verificar o build da imagem Docker com sucesso (note que o erro ocorre apenas no acesso ao IP fictício).
+* **Configuração:** Veja o o print [`/docs/screenshots/Secrets_criadas.png`](./docs/screenshots/Secrets_criadas.png) para verificar que as Secrets foram devidamente criadas.
 
 ## Detalhes de Ambiente
 * Usei um volume no Docker (./data:/app/data) para o arquivo .db não sumir quando o container for parado.
