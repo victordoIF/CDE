@@ -24,4 +24,11 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.patch('/:id/perfil', autenticar, permitir('admin'), async (req, res) => {
+    const { perfil } = req.body;
+    const db = await open({ filename: process.env.DB_FILE, driver: sqlite3.Database });
+    await db.run("UPDATE usuarios SET perfil = ? WHERE id = ?", [perfil, req.params.id]);
+    res.json({ message: 'Perfil atualizado' });
+});
+
 export default router;

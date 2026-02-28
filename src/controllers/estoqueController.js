@@ -28,6 +28,10 @@ export const realizarMovimentacao = async (req, res) => {
     const usuario_id = req.user.id;
     const db = await dbPromise;
 
+    if (quantidade <= 0) {
+        return res.status(400).json({ error: 'A quantidade deve ser um valor positivo' });
+    }
+
     const produto = await db.get("SELECT * FROM produtos WHERE id = ?", [produto_id]);
     if (!produto) return res.status(404).json({ error: 'Produto não encontrado' });
 
@@ -54,4 +58,15 @@ export const relatorioBaixoEstoque = async (req, res) => {
         "SELECT * FROM produtos WHERE quantidade <= minimo"
     );
     res.json(produtosCriticos);
+};
+
+export const excluirProduto = async (req, res) => {
+    const db = await dbPromise;
+    try {
+        const result = await db.run("DELETE FROM produtos WHERE id = ?", [req.params.id]);
+        if (result.changes === 0) return res.status(404).json({ error: 'Produto não encontrado' });
+        res.json({ message: 'Produto removido com sucesso' });
+    } catch (error) {
+        res.status(500).json({ error: 'Erro ao excluir produto' });
+    }
 };

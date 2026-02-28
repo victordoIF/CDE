@@ -8,5 +8,6 @@ router.get('/produtos', autenticar, permitir('admin', 'estoquista', 'consulta'),
 router.post('/produtos', autenticar, permitir('admin', 'estoquista'), estoqueCtrl.criarProduto);
 router.post('/movimentacoes', autenticar, permitir('admin', 'estoquista'), estoqueCtrl.realizarMovimentacao);
 router.get('/relatorios/baixo-estoque', autenticar, permitir('admin', 'estoquista', 'consulta'), estoqueCtrl.relatorioBaixoEstoque);
+router.delete('/produtos/:id', autenticar, permitir('admin'), estoqueCtrl.excluirProduto);
 
 export default router;
