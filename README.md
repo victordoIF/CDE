@@ -26,12 +26,12 @@ Para subir o sistema, você só precisa ter o Docker instalado.
 
 ## Como funciona o deploy (CI/CD)
 O projeto tem um workflow no GitHub Actions que automatiza o build e o deploy:
-* Toda vez que eu dou um push na branch main, o GitHub faz o build da imagem Docker para ver se está tudo certo.
-* Depois do build, ele tenta conectar via SSH no servidor para atualizar os containers.
-* **Atenção:** Como estou usando dados de servidor fictícios para o trabalho, o passo de SSH dá erro de "timeout", mas o build da imagem completa com sucesso, validando que o código está pronto para rodar.
+* O build da imagem Docker é feito a cada push na main.
+* O deploy tenta conectar via SSH para atualizar o servidor.
+* **Atenção:** O erro de "timeout" no SSH acontece porque os IPs e chaves nos secrets são fictícios para esse trabalho, mas o build da imagem diz que o código está pronto.
 
-## Configuração de Secrets
-Para o workflow funcionar, configurei os segredos no GitHub em ```Settings > Secrets and variables > Actions:```
+## Onde configurar os Secrets no GitHub
+Para o deploy funcionar em um cenário real, você deve ir no seu repositório em: ```Settings > Secrets and variables > Actions > New repository secret:```
 * ```SERVER_HOST```, ```SERVER_USER```, ```SERVER_SSH_KEY``` e ```JWT_SECRET```.
 
 Criei uma pasta ```/prints``` no repositório com as imagens do sistema funcionando:
