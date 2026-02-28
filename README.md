@@ -34,6 +34,12 @@ O projeto tem um workflow no GitHub Actions que automatiza o build e o deploy:
 Para o deploy funcionar em um cenário real, você deve ir no seu repositório em: ```Settings > Secrets and variables > Actions > New repository secret:```
 * ```SERVER_HOST```, ```SERVER_USER```, ```SERVER_SSH_KEY``` e ```JWT_SECRET```.
 
+## 📂 Documentação e Relatórios
+Toda a documentação teórica e as evidências de teste estão organizadas na pasta `/docs`:
+
+* **Engenharia de Software:** O relatório completo com os artefatos (Visão, Personas, Modelo ER, etc.) está em [`/docs/reports/`](./docs/reports/).
+* **Prints e Evidências:** Os registos do Workflow do GitHub Actions, as Secrets e os testes da API estão em [`/docs/screenshots/`](./docs/screenshots/).
+
 Criei uma pasta ```/prints``` no repositório com as imagens do sistema funcionando:
 * **Workflow:** Veja o print ```Erro_SSH.png``` para verificar o build da imagem Docker com sucesso (note que o erro ocorre apenas no acesso ao IP fictício).
 * **Configuração:** Veja o o print ```Secrets_criadas.png"``` para verificar que as Secrets foram devidamente criadas.
