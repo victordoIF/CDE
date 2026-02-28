@@ -1,5 +1,5 @@
 # Sistema de Controle de Estoque - ADS Umirim
-* **Aluno:** Victor Manuel Cunha Santos
+* **Aluno:** Victor Manuel Cunha Santos e João Emanuel Carlos Lima (em Engenharia de Software)
 * **Professor:** Rôney Reis
 * **Disciplinas:** Ambiente de Software / Programação Estruturada / Engenharia de Software
 
