@@ -39,8 +39,7 @@ Toda a documentação teórica e as evidências de teste estão organizadas na p
 
 * **Engenharia de Software:** O relatório completo com os artefatos (Visão, Personas, Modelo ER, etc.) está em [`/docs/reports/`](./docs/reports/).
 * **Prints e Evidências:** Os registos do Workflow do GitHub Actions e as Secrets estão em [`/docs/screenshots/`](./docs/screenshots/).
-
-
+---------------------------------------------------------------------------------------------------------------------------------------
 * **Workflow:** Veja o print [`/docs/screenshots/Erro_SSH.png`](./docs/screenshots/Erro_SSH.png) para verificar o build da imagem Docker com sucesso (note que o erro ocorre apenas no acesso ao IP fictício).
 * **Configuração:** Veja o o print [`/docs/screenshots/Secrets_criadas.png`](./docs/screenshots/Secrets_criadas.png) para verificar que as Secrets foram devidamente criadas.
 
